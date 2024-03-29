@@ -1,0 +1,35 @@
+body {
+    background-image: url('coffee-background2.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 80%;
+    max-width: 600px;
+}
+
+.text-white {
+    color: white;
+}
+
+.btn-secondary {
+    width: 100%;
+    margin: 5px 0;
+}
+
+#coffee-list {
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+}
+

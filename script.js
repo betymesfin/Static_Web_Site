@@ -24,7 +24,7 @@ function displayCoffeeData(coffeeData) {
     // Create and append each coffee item to the list
     coffeeData.forEach(coffee => {
         const coffeeItemElement = document.createElement('div');
-        coffeeItemElement.textContent = `${coffee.title}: ${coffee.description}`;
+        coffeeItemElement.textContent = `${coffee.title}: ${coffee.description}: ${coffee.ingredients}`;
         coffeeListElement.appendChild(coffeeItemElement);
     });
 }
