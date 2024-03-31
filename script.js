@@ -1,33 +1,52 @@
 // Define the API URL
-const apiUrl = 'https://api.sampleapis.com/coffee/hot';
+const apiUrlHot = 'https://api.sampleapis.com/coffee/hot';
 
-// Function to fetch coffee data
-async function fetchCoffeeData() {
+const apiUrlIced = 'https://api.sampleapis.com/coffee/iced';
+const container = document.querySelector('.container');
+
+document.getElementById('hot-coffee').addEventListener('click', () => fetchCoffeeData(apiUrlHot));
+document.getElementById('iced-coffee').addEventListener('click', () => fetchCoffeeData(apiUrlIced));
+
+async function fetchCoffeeData(apiUrl) {
     try {
         const response = await fetch(apiUrl);
         const coffeeData = await response.json();
-
-        // Call function to display coffee data on the website
         displayCoffeeData(coffeeData);
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 }
 
-// Function to display coffee data
 function displayCoffeeData(coffeeData) {
-    const coffeeListElement = document.getElementById('coffee-list');
-
     // Clear existing content
-    coffeeListElement.innerHTML = '';
+    container.innerHTML = '<h1 class="text-white">Select a Coffee</h1>';
 
     // Create and append each coffee item to the list
     coffeeData.forEach(coffee => {
-        const coffeeItemElement = document.createElement('div');
-        coffeeItemElement.textContent = `${coffee.title}: ${coffee.description}: ${coffee.ingredients}`;
-        coffeeListElement.appendChild(coffeeItemElement);
+        const coffeeItemElement = document.createElement('button');
+        coffeeItemElement.classList.add('btn', 'btn-secondary', 'd-block', 'm-2');
+        coffeeItemElement.textContent = coffee.title;
+        coffeeItemElement.onclick = () => displayIngredients(coffee);
+        container.appendChild(coffeeItemElement);
     });
 }
+
+function displayIngredients(coffee) {
+    // Clear existing content
+    container.innerHTML = `<h1 class="text-white">${coffee.title}</h1><p class="text-white">${coffee.description}</p>`;
+
+    // Display ingredients
+    if (coffee.ingredients) {
+        const ingredientsList = document.createElement('ul');
+        coffee.ingredients.forEach(ingredient => {
+            const ingredientItem = document.createElement('li');
+            ingredientItem.textContent = ingredient;
+            ingredientsList.appendChild(ingredientItem);
+        });
+        container.appendChild(ingredientsList);
+    }
+}
+
 
 // Fetch and display coffee data when the script loads
 fetchCoffeeData();
