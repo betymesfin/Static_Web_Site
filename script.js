@@ -18,11 +18,10 @@ async function fetchCoffeeData(apiUrl) {
 }
 
 function displayCoffeeData(coffeeData) {
-    // Clear existing content
     container.innerHTML = '<h1 class="text-white">Select a Coffee</h1>';
 
-    // Create and append each coffee item to the list
-    coffeeData.forEach(coffee => {
+    // Display only the first five coffee items
+    coffeeData.slice(0, 10).forEach(coffee => {
         const coffeeItemElement = document.createElement('button');
         coffeeItemElement.classList.add('btn', 'btn-secondary', 'd-block', 'm-2');
         coffeeItemElement.textContent = coffee.title;
