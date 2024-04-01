@@ -45,7 +45,7 @@ window.onload = function() {
         coffeeList.id = 'coffee-list';
         container.appendChild(coffeeList);
         
-        coffeeData.slice(0, 5).forEach(coffee => {
+        coffeeData.forEach(coffee => {
             const coffeeItemElement = document.createElement('button');
             coffeeItemElement.classList.add('btn', 'btn-secondary', 'd-block', 'm-2');
             coffeeItemElement.textContent = coffee.title;
