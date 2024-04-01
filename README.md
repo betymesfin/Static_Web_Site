@@ -18,3 +18,10 @@ Coffee Explorer is a simple web site designed to provide coffee enthusiasts with
 - **JavaScript**: Powers the dynamic aspects of the website, handling user interactions, data fetching, and content updating.
 - **Third-Party API**: Coffee data is fetched from `https://api.sampleapis.com/coffee` API, which supplies the list of coffees, their descriptions, and ingredients.
 
+## Local Development
+
+To set up the Coffee Explorer on your local machine, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory.
+3. Open `index.html` in your browser to view the website.
